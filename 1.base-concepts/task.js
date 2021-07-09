@@ -1,19 +1,19 @@
 function solveEquation(a, b, c) {
-  let arr = [x];
+  let arr = [];
   let D = b**2-((4*a)*c);
-  if (D < 0){
-    return [];
-  } else if (D === 0){
-    let x = -b/(2*a);
-    return [];
-  } else if (D > 0){
+  if (D > 0){
     let x1 = (-b + Math.sqrt(d) )/(2a);
     let x2 = (-b - Math.sqrt(d) )/(2a);
-    return [];
+    arr[0] = x1;
+    arr[1] = x2;
   }
-
-  // код для задачи №1 писать здесь
-  return arr; // array
+} else if (D === 0) {
+  let x = -b / (2 * a);
+  arr[0] = x;
+} else if (D < 0) {
+  arr[];
+}
+  return arr;
 }
 
 solveEquation();
