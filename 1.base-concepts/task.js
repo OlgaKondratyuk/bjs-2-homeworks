@@ -15,15 +15,16 @@ function solveEquation(a, b, c) {
 
 
 
-function calculateTotalMortgage(percent, contribution, amount, date) {
+function calculateTotalMortgage(percent, deposit, creditAmount, date) {
   let totalAmount;
-  //let mortgageBody = amount - contribution
-
-
-
-  // код для задачи №2 писать здесь
+  let mortgageBody = (creditAmount - deposit);
+  let S = mortgageBody;
+  let P = (percent / 100);
+  let n = date;
+  monthlyPayment = S * (P + P / (((1 + P)^n) - 1));
+  totalAmount = (monthlyPayment * date) + deposit;
 
   return totalAmount;
 }
 
-//calculateTotalMorgage(10, 0, 50000, 12);
+calculateTotalMortgage(10, 0, 50000, 12);
