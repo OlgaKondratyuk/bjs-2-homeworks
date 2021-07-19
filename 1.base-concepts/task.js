@@ -17,12 +17,20 @@ function solveEquation(a, b, c) {
 
 function calculateTotalMortgage(percent, deposit, creditAmount, date) {
   let totalAmount;
-  let mortgageBody = (creditAmount - deposit);
-  let S = mortgageBody;
-  let P = (percent / 100);
-  let n = date;
-  monthlyPayment = S * (P + P / (((1 + P)^n) - 1));
-  totalAmount = (monthlyPayment * date) + deposit;
+
+  if (Number.isNaN(NaN)){
+    const date1 = new Date(date);
+    const date2 = Date();
+    totalMonth = ();
+    console.log (date1);
+    let mortgageBody = (creditAmount - deposit);
+    let S = mortgageBody;  let P = (percent / 12);
+    let n = date;
+    monthlyPayment = S * (P + P / (((1 + P)**n) - 1));
+    totalAmount = (monthlyPayment * date) + deposit;
+  } else if (Number.isNaN(!!NaN)) {
+    console.log('Параметр "Начальный взнос" содержит неправильное значение "<введенное значение>"');
+  }
 
   return totalAmount;
 }
