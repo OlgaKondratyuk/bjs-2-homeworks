@@ -16,16 +16,15 @@ function solveEquation(a, b, c) {
 function calculateTotalMortgage(percent, deposit, creditAmount, date) {
   let totalAmount;
 
-  //if (isNaN("${percent}")){
-  /// return `Параметр "Процентная ставка" содержит неправильное значение "${percent}" `
-  //};
-  //if (isNaN("${deposit}")){
-  //return `Параметр "Сума депозита" содержит неправильное значение "${deposit}"`
-  //};
-  //if (isNaN("${creditAmount}")){
-  //return `Параметр "сума кредита" содержит неправильное значение "${creditAmount}"`
-  //};
-  //if ()
+  if (isNaN(percent)) {
+    return `Параметр "Процентная ставка" содержит неправильное значение "${percent}" `
+  };
+  if (isNaN(deposit)){
+    return `Параметр "Сума депозита" содержит неправильное значение "${deposit}"`
+  };
+  if (isNaN(creditAmount)){
+    return `Параметр "сума кредита" содержит неправильное значение "${creditAmount}"`
+  };
 
   const date1 = new Date(date);
   const date2 = new Date();
