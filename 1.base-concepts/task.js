@@ -13,35 +13,36 @@ function solveEquation(a, b, c) {
   return arr;
 }
 
-
-
 function calculateTotalMortgage(percent, deposit, creditAmount, date) {
   let totalAmount;
 
-  if (isNaN(percent)){
-    return `Параметр "Процентная ставка" содержит неправильное значение "${percent}"`
-  };
-  if (isNaN(deposit)){
-    return `Параметр "Сума депозита" содержит неправильное значение "${deposit}"`
-  };
-  if (isNaN(creditAmount)){return `Параметр "сума кредита" содержит неправильное значение "${creditAmount}"`}
-  else {
+  //if (isNaN("${percent}")){
+  /// return `Параметр "Процентная ставка" содержит неправильное значение "${percent}" `
+  //};
+  //if (isNaN("${deposit}")){
+  //return `Параметр "Сума депозита" содержит неправильное значение "${deposit}"`
+  //};
+  //if (isNaN("${creditAmount}")){
+  //return `Параметр "сума кредита" содержит неправильное значение "${creditAmount}"`
+  //};
+  //if ()
 
-    const date1 = new Date(date);
-    const date2 = new Date();
-    date1.getFullYear();
-    date2.getFullYear();
-    date1.getMonth();
-    date2.getMonth();
-    totalMonth = (date1 - date2)*12;
+  const date1 = new Date(date);
+  const date2 = new Date();
+  let dateOneYear = date1.getFullYear();
+  let dateTwoYear = date2.getFullYear();
+  let dateOneMonth = date1.getMonth();
+  let dateTwoMonth = date2.getMonth();
+  const amountMonth = ((dateTwoYear - dateOneYear) * 12) - (dateTwoMonth + dateOneMonth);
+  let mortgageBody = (creditAmount - deposit);
+  let S = mortgageBody;
+  let P = ((percent / 100) / 12);
+  let n = amountMonth;
+  monthlyPayment = S * (P + P / (((1 + P) ** n) - 1));
+  totalAmount = ((monthlyPayment * n) + deposit).toFixed(2);
 
-    let mortgageBody = (creditAmount - deposit);
-    let S = mortgageBody;
-    let P = ((percent / 100)/12);
-    let n = date;
-    monthlyPayment = S * (P + P / (((1 + P)**n) - 1));
-    totalAmount = ((monthlyPayment * date) + deposit).toFixed(2);
-  }
   return totalAmount;
 }
-calculateTotalMortgage(10, 0, 20000, 24);
+calculateTotalMortgage(10, 1000, 20000, 24)
+
+
