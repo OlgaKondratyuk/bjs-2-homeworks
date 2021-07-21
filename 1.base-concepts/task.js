@@ -17,13 +17,13 @@ function calculateTotalMortgage(percent, deposit, creditAmount, date) {
   let totalAmount;
 
   if (isNaN(percent)) {
-    return "Параметр 'Процентная ставка' содержит неправильное значение '${percent}'"
+    return `Параметр "Процентная ставка" содержит неправильное значение "${percent}"`;
   };
   if (isNaN(deposit)){
-    return "Параметр 'Начальный взнос' содержит неправильное значение '${deposit}'"
+    return `Параметр "Начальный взнос" содержит неправильное значение "${deposit}"`;
   };
   if (isNaN(creditAmount)){
-    return "Параметр 'Общая стоимость' содержит неправильное значение '${creditAmount}'"
+    return `Параметр "Общая стоимость" содержит неправильное значение "${creditAmount}"`;
   };
 
   const date1 = new Date(date);
@@ -39,7 +39,7 @@ function calculateTotalMortgage(percent, deposit, creditAmount, date) {
   let n = amountMonth;
   monthlyPayment = S * (P + P / (((1 + P) ** n) - 1));
   totalAmount = (monthlyPayment * n).toFixed(2);
-  totalAmount = Number();
+  totalAmount = Number(totalAmount);
   return totalAmount;
 }
 calculateTotalMortgage(10, 1000, 20000, 24)
