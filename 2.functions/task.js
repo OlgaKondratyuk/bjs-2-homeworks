@@ -22,7 +22,7 @@ function getArrayParams(arr) {
 getArrayParams([1, 2, 3, -100, 10]);
 
 // Задание 2
-function worker (arr) {
+function worker(arr) {
   let sum = 0;
   let arrSum = [];
   for (let i = 0; i < arr.length; i++) {
@@ -40,34 +40,30 @@ function mincer(inArr, func) {
   arr = func(inArr);
 
   let max = -99999;
+  let min = 100000;
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > max) {
       max = arr[i];
     }
+    if (arr[i] < min) {
+      min = arr[i];
+    }
   }
-  return max;
+  return { min: min, max: max };
 }
-let arrOfArr = ([[1, 2, 3], [4, 5, 6]]);
-  mincer(arrOfArr, worker);
-    arrOfArr = ([[10, 10, 11], [20, 10]]);
-  mincer(arrOfArr, worker);
-    arrOfArr = ([[0, 0, 0], [-1, -100]]);
-  mincer(arrOfArr, worker);
 // Задание 3
 
-function worker2(obj){
+function worker2(obj) {
   let calcDifference = (obj.max - obj.min);
   //console.log(obj.min);
   //console.log(obj.max);
 
   return calcDifference;
 }
-let minMaxObj = calcMax(calcSum);
 
-worker2(minMaxObj);
 
-arrOfArr = ([[-10, -20, -40], [10, 20,30]]);
-mincer(arrOfArr, worker2);
-arrOfArr = ([[0, 0, 0], [-1, -99]]);
-mincer(arrOfArr, worker2);
-//console.log('max: ' + max);
+let arrOfArr = ([[1, 2, 3], [4, 5, 6]]);
+let retVal = mincer(arrOfArr, worker);
+let szam = worker2(retVal);
+console.log(szam);
+
